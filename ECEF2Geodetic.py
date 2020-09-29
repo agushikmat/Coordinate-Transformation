@@ -52,3 +52,46 @@ def dms(degree):
     m = int(ms)
     s = (ms-m)* 60.0
     return(d,m,s)
+
+def user_input():
+    str1 = 'S 03 26 20.75675'
+    str2 = 'E 102 11 38.87299'
+    h = 164.0179
+    print(str1, '  ',str2, '  ',h)
+    ls = str1.split(' ')
+    bs = str2.split(' ')
+
+    ns = ls[0]
+    ew = bs[0]
+    lat = float(ls[1]) + float(ls[2])/60 + float(ls[3])/3600
+    lon = float(bs[1]) + float(bs[2])/60 + float(bs[3])/3600
+    if ns == 'S' or ns == 's':
+        lat = -1*lat
+    if ew == 'W' or ew == 'w':
+        lon = -1 * lon
+      
+    return(lat,lon,h)
+
+latlon = user_input()
+lat = latlon[0]
+lon = latlon[1]
+height = latlon[2]
+print(lat,lon)
+
+xyz = geodetic2xyz(lat,lon,height)
+x = xyz[0]
+y = xyz[1]
+z = xyz[2]
+
+print(x,y,z)
+
+lb = xyz2geodetic(x,y,z)
+l = lb[0]
+b = lb[1]
+h = lb[2]
+
+lintang = dms(l)
+bujur = dms(b)
+height = h
+
+print(lintang,'   ',bujur, '  ', height)
