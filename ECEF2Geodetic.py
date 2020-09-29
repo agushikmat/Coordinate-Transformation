@@ -72,26 +72,28 @@ def user_input():
       
     return(lat,lon,h)
 
-latlon = user_input()
-lat = latlon[0]
-lon = latlon[1]
-height = latlon[2]
-print(lat,lon)
+def main():
+    latlon = user_input()
+    lat = latlon[0]
+    lon = latlon[1]
+    height = latlon[2]
+    print(lat,lon)
 
-xyz = geodetic2xyz(lat,lon,height)
-x = xyz[0]
-y = xyz[1]
-z = xyz[2]
+    xyz = geodetic2xyz(lat,lon,height)
+    x = xyz[0]
+    y = xyz[1]
+    z = xyz[2]
 
-print(x,y,z)
+    print(x,y,z)
 
-lb = xyz2geodetic(x,y,z)
-l = lb[0]
-b = lb[1]
-h = lb[2]
+    lb = xyz2geodetic(x,y,z)
+    l = lb[0]
+    b = lb[1]
+    h = lb[2]
 
-lintang = dms(l)
-bujur = dms(b)
-height = h
+    lintang = dms(l)
+    bujur = dms(b)
+    height = h
 
-print(lintang,'   ',bujur, '  ', height)
+    print(lintang,'   ',bujur, '  ', height)
+    
