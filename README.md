@@ -1,2 +1,2 @@
 # Coordinate-Transformation
-Functions in python to perform coodinate transformation (cartesian, spherical, and map projection)
+Functions in python to perform coordinate transformation (cartesian, spherical, and map projection)
